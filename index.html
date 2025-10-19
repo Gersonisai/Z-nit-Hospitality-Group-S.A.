@@ -595,7 +595,7 @@
                         <li><a href="#inversion">Inversión</a></li>
                         <li><a href="#nosotros">Nosotros</a></li>
                         <li><a href="#contacto">Contacto</a></li>
-                        <li><a href="../index.html">Grupo Zénit</a></li>
+                        <li><a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" target="_blank">Grupo Zénit</a></li>
                     </ul>
                 </nav>
             </div>
@@ -856,7 +856,9 @@
                         <div class="contact-icon">👤</div>
                         <div>
                             <h4>Contacto Principal</h4>
-                            <p>Gerson Isai Machua Oniava<br>Presidente del Directorio - Grupo Zénit</p>
+                            <p>Gerson Isai Machua Oniava<br>Presidente del Directorio - Grupo Zénit<br>
+                               <a href="https://sites.google.com/view/gerson-isai-machua-oniava/inicio" target="_blank" style="color: var(--hospitality-gold);">Sitio Personal</a>
+                            </p>
                         </div>
                     </div>
                     
@@ -933,7 +935,7 @@
                         <li><a href="#inversion">Inversión</a></li>
                         <li><a href="#nosotros">Nosotros</a></li>
                         <li><a href="#contacto">Contacto</a></li>
-                        <li><a href="../index.html">Grupo Zénit</a></li>
+                        <li><a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" target="_blank">Grupo Zénit</a></li>
                     </ul>
                 </div>
                 
@@ -942,8 +944,22 @@
                     <ul>
                         <li>📍 La Paz, Santa Cruz, Uyuni, Beni, Bolivia</li>
                         <li>📧 <a href="mailto:gersonisaimachuaoniava@gmail.com" style="color:#ccc; text-decoration:none;">gersonisaimachuaoniava@gmail.com</a></li>
-                        <li>👤 Gerson Isai Machua Oniava</li>
+                        <li>👤 <a href="https://sites.google.com/view/gerson-isai-machua-oniava/inicio" target="_blank" style="color:#ccc; text-decoration:none;">Gerson Isai Machua Oniava</a></li>
                         <li>🏨 Especialistas en hostelería y entretenimiento</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Empresas del Grupo</h3>
+                    <ul>
+                        <li><a href="https://gersonisai.github.io/yasikari-web/" target="_blank">Yasikari Web</a></li>
+                        <li><a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" target="_blank">Grupo Zénit S.A.</a></li>
+                        <li><a href="https://gersonisai.github.io/Z-nit-Financiera-S.A./" target="_blank">Zénit Financiera S.A.</a></li>
+                        <li><a href="https://gersonisai.github.io/Z-nit-Software-Solutions-S.A./" target="_blank">Zénit Software Solutions S.A.</a></li>
+                        <li><a href="https://gersonisai.github.io/Z-nit-Agro-Industrias-S.A./" target="_blank">Zénit Agro Industrias S.A.</a></li>
+                        <li><a href="https://gersonisai.github.io/Z-nit-Cargo-Transport-S.A./" target="_blank">Zénit Cargo Transport S.A.</a></li>
+                        <li><a href="https://gersonisai.github.io/Z-nit-Hospitality-Group-S.A./" target="_blank">Zénit Hospitality Group S.A.</a></li>
+                        <li><a href="https://gersonisai.github.io/Z-nit-Pharma-S.A./" target="_blank">Zénit Pharma S.A.</a></li>
                     </ul>
                 </div>
             </div>
@@ -964,7 +980,7 @@
         document.querySelectorAll('nav a, .btn').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
-                if (!href || href.startsWith('mailto:') || href.startsWith('http')) return;
+                if (!href || href.startsWith('mailto:') || href.startsWith('http') || href.startsWith('#')) return;
                 e.preventDefault();
                 const targetElement = document.querySelector(href);
                 if (!targetElement) return;

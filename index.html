@@ -3,994 +3,1299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zénit Hospitality Group S.A. | Hoteles y Entretenimiento en Bolivia</title>
-    <meta name="description" content="Zénit Hospitality Group S.A. opera hoteles, restaurantes y negocios de entretenimiento en Bolivia. Parte del Grupo Zénit.">
+    <title>Zénit Hospitality Group S.A. | Hoteles, Restaurantes y Entretenimiento</title>
+    <meta name="description" content="Empresa líder en hostelería, gastronomía y entretenimiento. Operación de hoteles, restaurantes, centros de convenciones y servicios de catering en Bolivia.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #1a3a5f;
-            --secondary: #2c5a8a;
-            --accent: #e6a23c;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --success: #28a745;
-            --hospitality-gold: #d4af37;
+            /* Paleta corporativa Zénit con toques cálidos/hospitalidad */
+            --primary-dark: #0a1628;
+            --primary-navy: #1a2942;
+            --accent-gold: #c9a961;
+            --accent-gold-light: #e4d4a8;
+            --accent-terracotta: #c85a3e;
+            --accent-terracotta-light: #e67a5f;
+            --accent-coral: #d97757;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-warm: #fdf8f3;
+            --border-subtle: #e2e8f0;
+            
+            /* Typography */
+            --font-display: 'Crimson Pro', serif;
+            --font-body: 'Work Sans', sans-serif;
+            
+            /* Spacing */
+            --section-padding: clamp(4rem, 8vw, 8rem);
+            --container-max: 1280px;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        html {
-            scroll-behavior: smooth;
         }
         
         body {
-            background-color: #f5f7fa;
-            color: #333;
+            font-family: var(--font-body);
+            color: var(--text-primary);
             line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--bg-white);
         }
         
-        /* Header Styles */
+        /* Header */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
         
-        .container {
-            width: 90%;
-            max-width: 1200px;
+        header.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        nav {
+            max-width: var(--container-max);
             margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        .header-content {
+            padding: 1.25rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo h1 {
+            font-family: var(--font-display);
             font-size: 1.5rem;
             font-weight: 700;
-        }
-        
-        .logo span {
-            color: var(--hospitality-gold);
-        }
-        
-        nav ul {
+            color: var(--primary-dark);
+            text-decoration: none;
+            letter-spacing: -0.02em;
             display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            font-size: 1.75rem;
+        }
+        
+        .logo-accent {
+            color: var(--accent-terracotta);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
             list-style: none;
         }
         
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
+        .nav-links a {
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
             position: relative;
-            font-size: 0.9rem;
         }
         
-        nav ul li a:hover {
-            color: var(--hospitality-gold);
+        .nav-links a:hover {
+            color: var(--accent-terracotta);
         }
         
-        nav ul li a::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -4px;
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--hospitality-gold);
-            transition: width 0.3s;
+            background: var(--accent-terracotta);
+            transition: width 0.3s ease;
         }
         
-        nav ul li a:hover::after {
+        .nav-links a:hover::after {
             width: 100%;
         }
         
-        .mobile-menu {
+        .mobile-menu-btn {
             display: none;
-            font-size: 1.5rem;
+            background: none;
+            border: none;
             cursor: pointer;
-            color: white;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--primary-dark);
+            margin: 5px 0;
+            transition: 0.3s;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26,58,95,0.8), rgba(26,58,95,0.9)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-        
-        .hero h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--hospitality-gold);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-        
-        .btn:hover {
-            background-color: #b8941f;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid white;
-            margin-left: 0.5rem;
-            margin-top: 0.5rem;
-            color: white;
-            padding: 0.75rem 1.2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn-outline:hover {
-            background-color: white;
-            color: var(--primary);
-        }
-        
-        /* Section Styles */
-        section {
-            padding: 3rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .section-title h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
+            margin-top: 80px;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--accent-terracotta) 0%, var(--accent-coral) 100%);
             position: relative;
-            display: inline-block;
-            margin-bottom: 1rem;
+            overflow: hidden;
         }
         
-        .section-title h2::after {
+        .hero::before {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--hospitality-gold);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 70% 30%, rgba(201, 169, 97, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 30% 70%, rgba(228, 212, 168, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
         
-        .section-title p {
-            color: #666;
-            max-width: 700px;
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: var(--container-max);
             margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--accent-gold-light);
+        }
+        
+        .hero-subtitle {
+            font-family: var(--font-body);
             font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-gold-light);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.1s forwards;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            color: var(--bg-white);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 680px;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 3rem;
+            max-width: 900px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+        
+        .hero-stat {
+            text-align: left;
+        }
+        
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--bg-white);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-stat-label {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
         }
         
         /* Services Section */
+        .services {
+            padding: var(--section-padding) 2rem;
+            background: var(--bg-white);
+        }
+        
+        .services-header {
+            max-width: var(--container-max);
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+        
+        .section-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-terracotta);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
         .services-grid {
+            max-width: var(--container-max);
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
         }
         
         .service-card {
-            background-color: white;
-            border-radius: 10px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-subtle);
+            padding: 3rem;
+            transition: all 0.3s ease;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid var(--hospitality-gold);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-terracotta), var(--accent-coral));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
         }
         
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent-terracotta-light);
         }
         
-        .service-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1.2rem;
-            text-align: center;
-        }
-        
-        .service-body {
-            padding: 1.2rem;
-        }
-        
-        .service-body h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
         
         .service-icon {
-            font-size: 2.5rem;
-            color: var(--hospitality-gold);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .service-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-dark);
             margin-bottom: 1rem;
-            text-align: center;
         }
         
-        /* Facilities Section */
-        .facilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
+        .service-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
         }
         
-        .facility-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        
-        .facility-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .facility-img {
-            height: 200px;
-            background-color: #e9ecef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
-        .facility-content {
-            padding: 1.2rem;
-        }
-        
-        .facility-content h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Portfolio Section */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .portfolio-item {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .portfolio-img {
-            height: 200px;
-            background-color: #e9ecef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
-        .portfolio-content {
-            padding: 1.2rem;
-        }
-        
-        .portfolio-content h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        /* About Section */
-        .about-content {
+        .service-features {
+            list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 0.75rem;
         }
         
-        .about-text {
-            flex: 1;
-        }
-        
-        .company-info {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-top: 1.5rem;
-        }
-        
-        .company-info h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-        
-        .company-contact {
+        .service-features li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-top: 1rem;
+            gap: 0.75rem;
         }
         
-        /* Investment Section */
-        .investment-stats {
+        .service-features li::before {
+            content: '✦';
+            color: var(--accent-terracotta);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        /* Destinations Section */
+        .destinations {
+            padding: var(--section-padding) 2rem;
+            background: var(--bg-warm);
+        }
+        
+        .destinations-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .destinations-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .destinations-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .destination-card {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-left: 4px solid var(--accent-terracotta);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .destination-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border-left-width: 6px;
+        }
+        
+        .destination-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .destination-name {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .destination-subtitle {
+            color: var(--accent-terracotta);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        
+        .destination-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .destination-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .destination-features li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .destination-features li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-terracotta);
+            font-weight: 700;
+        }
+        
+        /* Experience Section */
+        .experience {
+            padding: var(--section-padding) 2rem;
+            background: var(--primary-dark);
+            color: var(--bg-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .experience::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 75% 25%, rgba(200, 90, 62, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 25% 75%, rgba(201, 169, 97, 0.12) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .experience-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+        
+        .experience-content h2 {
             margin-bottom: 2rem;
         }
         
-        .stat-box {
-            text-align: center;
-            padding: 1.5rem;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        .experience-text {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
         }
         
-        .stat-box h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-box p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        /* Contact Section */
-        .contact-container {
+        .experience-list {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
         
-        .contact-info {
-            flex: 1;
-        }
-        
-        .contact-item {
+        .experience-item {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.2rem;
+            gap: 1.5rem;
         }
         
-        .contact-icon {
-            background-color: var(--primary);
-            color: white;
-            width: 35px;
-            height: 35px;
+        .experience-icon {
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            background: linear-gradient(135deg, var(--accent-terracotta-light), var(--accent-terracotta));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1rem;
-            flex-shrink: 0;
-            font-size: 0.9rem;
+            font-size: 1.75rem;
         }
         
-        .contact-message {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        .experience-text-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-text-content p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+        
+        /* Investment Section */
+        .investment {
+            padding: var(--section-padding) 2rem;
+            background: var(--bg-white);
+        }
+        
+        .investment-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .investment-header {
             text-align: center;
-            margin-top: 1.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .investment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .investment-card {
+            background: var(--bg-light);
+            padding: 3rem;
+            border-top: 3px solid var(--accent-coral);
+            transition: all 0.3s ease;
+        }
+        
+        .investment-card:hover {
+            background: var(--bg-white);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+        
+        .investment-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .investment-amount {
+            font-family: var(--font-display);
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--accent-terracotta);
+            margin-bottom: 1rem;
+        }
+        
+        .investment-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: var(--section-padding) 2rem;
+            background: linear-gradient(135deg, var(--accent-terracotta) 0%, var(--accent-coral) 100%);
+            color: var(--bg-white);
+            text-align: center;
+        }
+        
+        .cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--bg-white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .cta p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--bg-white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--bg-white);
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 2rem 0 1rem;
+            background: var(--primary-navy);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 4rem 2rem 2rem;
         }
         
         .footer-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bg-white);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .footer-section h4 {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--bg-white);
             margin-bottom: 1.5rem;
         }
         
-        .footer-column {
-            flex: 1;
-        }
-        
-        .footer-column h3 {
-            color: var(--hospitality-gold);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        .footer-column ul {
+        .footer-links {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
         
-        .footer-column ul li {
-            margin-bottom: 0.6rem;
-        }
-        
-        .footer-column ul li a {
-            color: #ccc;
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            transition: color 0.3s;
             font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
         
-        .footer-column ul li a:hover {
-            color: white;
+        .footer-links a:hover {
+            color: var(--accent-gold);
         }
         
-        .copyright {
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid #444;
-            color: #aaa;
-            font-size: 0.8rem;
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
         }
         
-        /* Responsive Styles */
-        @media (min-width: 768px) {
-            .hero {
-                padding: 5rem 0;
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-legal a:hover {
+            color: var(--accent-gold);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: 1fr;
             }
             
-            .hero h2 {
+            .experience-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: clamp(3rem, 6vw, 4rem);
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-title {
                 font-size: 2.5rem;
             }
             
-            .about-content {
-                flex-direction: row;
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
-            .investment-stats {
-                grid-template-columns: repeat(4, 1fr);
+            .destinations-grid,
+            .investment-grid {
+                grid-template-columns: 1fr;
             }
             
-            .contact-container {
-                flex-direction: row;
+            .cta-buttons {
+                flex-direction: column;
             }
             
-            .footer-content {
-                flex-direction: row;
-            }
-        }
-        
-        @media (max-width: 767px) {
-            .logo h1 {
-                font-size: 1.3rem;
-            }
-            
-            nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
+            .btn {
+                text-align: center;
                 width: 100%;
-                background: var(--primary);
-                padding: 1rem;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
             
-            nav.active {
-                display: block;
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
-            nav ul {
+            .footer-bottom {
                 flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
             
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .btn-container {
-                display: flex;
+            .footer-legal {
                 flex-direction: column;
-                align-items: center;
                 gap: 0.5rem;
-            }
-            
-            .btn-outline {
-                margin-left: 0;
             }
         }
         
         @media (max-width: 480px) {
-            .container {
-                width: 95%;
+            nav {
+                padding: 1rem 1.5rem;
             }
             
-            .services-grid, .facilities-grid, .portfolio-grid {
-                grid-template-columns: 1fr;
+            .hero-content,
+            .services,
+            .destinations,
+            .experience,
+            .investment,
+            .cta,
+            footer {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
             }
             
-            .investment-stats {
-                grid-template-columns: 1fr;
+            .service-card,
+            .destination-card,
+            .investment-card {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <h1>ZÉNIT <span>HOSPITALITY</span> GROUP</h1>
-                </div>
-                <div class="mobile-menu" aria-label="Abrir menú">☰</div>
-                <nav>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#instalaciones">Instalaciones</a></li>
-                        <li><a href="#portafolio">Portafolio</a></li>
-                        <li><a href="#inversion">Inversión</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                        <li><a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" target="_blank">Grupo Zénit</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">
+                <span class="logo-icon">🏨</span>
+                <span>Zénit <span class="logo-accent">Hospitality</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="inicio" class="hero" aria-labelledby="hero-title">
-        <div class="container">
-            <h2 id="hero-title">Experiencias Inolvidables en Hotelería y Entretenimiento</h2>
-            <p>Zénit Hospitality Group S.A. opera hoteles, restaurantes y negocios de entretenimiento de primera clase en los destinos más exclusivos de Bolivia.</p>
-            <div class="btn-container">
-                <a href="#portafolio" class="btn" aria-label="Ver nuestras instalaciones">Ver Instalaciones</a>
-                <a href="#contacto" class="btn btn-outline" aria-label="Contactar para reservas">Contactar Ahora</a>
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="breadcrumb">
+                <a href="https://grupo-z-nit-s-a-three.vercel.app/">GRUPO ZÉNIT</a>
+                <span>/</span>
+                <span>Hospitality Group</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Servicios -->
-    <section id="servicios" class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestros Servicios</h2>
-                <p>Ofrecemos una amplia gama de servicios en el sector de hostelería y entretenimiento</p>
-            </div>
-            <div class="services-grid">
-                <!-- Hotelería -->
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3>Hotelería</h3>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-icon">🏨</div>
-                        <h4>Hoteles y Alojamiento</h4>
-                        <p>Operación y gestión de hoteles de lujo, hostales boutique y alojamientos turísticos en destinos exclusivos de Bolivia.</p>
-                    </div>
+            <div class="hero-subtitle">Filial de GRUPO ZÉNIT S.A.</div>
+            <h1 class="hero-title">Experiencias Memorables en Hostelería</h1>
+            <p class="hero-description">
+                Operación de hoteles, restaurantes, centros de convenciones y servicios de entretenimiento en las principales ciudades de Bolivia. Creamos experiencias excepcionales para cada huésped.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">Bs. 6.2M</div>
+                    <div class="hero-stat-label">Inversión Inicial</div>
                 </div>
-                
-                <!-- Restaurantes -->
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3>Restaurantes</h3>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-icon">🍽️</div>
-                        <h4>Gastronomía</h4>
-                        <p>Operación de restaurantes, cafeterías, bares y servicios de catering con cocina de alta calidad y experiencias únicas.</p>
-                    </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">4</div>
+                    <div class="hero-stat-label">Líneas de Negocio</div>
                 </div>
-                
-                <!-- Entretenimiento -->
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3>Entretenimiento</h3>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-icon">🎭</div>
-                        <h4>Centros de Ocio</h4>
-                        <p>Gestión de centros de entretenimiento, clubes sociales y otros servicios recreativos para todos los gustos y edades.</p>
-                    </div>
-                </div>
-                
-                <!-- Juegos de Azar -->
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3>Juegos de Azar</h3>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-icon">🎰</div>
-                        <h4>Casinos y Apuestas</h4>
-                        <p>Operación de sitios de apuestas y juegos de azar, previo cumplimiento de todas las leyes y regulaciones aplicables.</p>
-                    </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">24/7</div>
+                    <div class="hero-stat-label">Atención Continua</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Instalaciones -->
-    <section id="instalaciones" class="facilities">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestras Instalaciones</h2>
-                <p>Contamos con instalaciones de primera categoría en los mejores destinos de Bolivia</p>
-            </div>
-            <div class="facilities-grid">
-                <div class="facility-card">
-                    <div class="facility-img" style="background-color: #fff3e0;">
-                        HOTELES DE LUJO
-                    </div>
-                    <div class="facility-content">
-                        <h4>Hoteles Premium</h4>
-                        <p>Hoteles de 4 y 5 estrellas con todas las comodidades, ubicados en destinos turísticos exclusivos.</p>
-                    </div>
-                </div>
-                <div class="facility-card">
-                    <div class="facility-img" style="background-color: #f3e5f5;">
-                        RESTAURANTES GOURMET
-                    </div>
-                    <div class="facility-content">
-                        <h4>Gastronomía Excepcional</h4>
-                        <p>Restaurantes con cocina internacional y local, bares temáticos y servicios de catering para eventos.</p>
-                    </div>
-                </div>
-                <div class="facility-card">
-                    <div class="facility-img" style="background-color: #e8f5e9;">
-                        CENTROS DE ENTRETENIMIENTO
-                    </div>
-                    <div class="facility-content">
-                        <h4>Espacios de Ocio</h4>
-                        <p>Centros de convenciones, salones de eventos y espacios recreativos para todo tipo de celebraciones.</p>
-                    </div>
-                </div>
-            </div>
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="services-header">
+            <div class="section-label">Nuestros Servicios</div>
+            <h2 class="section-title">Soluciones Integrales de Hospitalidad</h2>
+            <p class="section-description">
+                Ofrecemos experiencias excepcionales en alojamiento, gastronomía y entretenimiento con estándares internacionales de calidad y servicio.
+            </p>
         </div>
-    </section>
+        <div class="services-grid">
+            <!-- Hoteles y Alojamiento -->
+            <div class="service-card">
+                <span class="service-icon">🏨</span>
+                <h3 class="service-title">Hoteles y Alojamiento</h3>
+                <p class="service-description">
+                    Operación y administración de hoteles, hostales y alojamientos turísticos con servicios de alta calidad en ubicaciones estratégicas.
+                </p>
+                <ul class="service-features">
+                    <li>Hoteles boutique y ejecutivos</li>
+                    <li>Hostales y alojamientos económicos</li>
+                    <li>Centros de convenciones y eventos</li>
+                    <li>Servicios de conserjería premium</li>
+                    <li>Atención multilingüe</li>
+                </ul>
+            </div>
 
-    <!-- Portafolio -->
-    <section id="portafolio" class="portfolio">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestro Portafolio</h2>
-                <p>Algunos de nuestros establecimientos y proyectos destacados</p>
+            <!-- Restaurantes y Gastronomía -->
+            <div class="service-card">
+                <span class="service-icon">🍽️</span>
+                <h3 class="service-title">Restaurantes y Gastronomía</h3>
+                <p class="service-description">
+                    Gestión de restaurantes, cafeterías, bares y servicios de catering con propuestas gastronómicas innovadoras y de excelencia.
+                </p>
+                <ul class="service-features">
+                    <li>Restaurantes de autor y temáticos</li>
+                    <li>Cafeterías y pastelerías gourmet</li>
+                    <li>Bares y lounges especializados</li>
+                    <li>Catering para eventos corporativos</li>
+                    <li>Cocina fusión e internacional</li>
+                </ul>
             </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-img" style="background-color: #e3f2fd;">
-                        ZÉNIT LA PAZ HOTEL
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Hotel en La Paz</h4>
-                        <p>Hotel de lujo en el centro de La Paz, con vista a la ciudad y montañas circundantes.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-img" style="background-color: #fce4ec;">
-                        ZÉNIT SANTA CRUZ RESORT
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Resort en Santa Cruz</h4>
-                        <p>Complejo turístico con piscinas, spa y restaurantes en la zona tropical de Santa Cruz.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-img" style="background-color: #f1f8e9;">
-                        ZÉNIT UYUNI LODGE
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Eco-Lodge en Uyuni</h4>
-                        <p>Alojamiento ecológico con vista al majestuoso Salar de Uyuni, experiencia única.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Inversión -->
-    <section id="inversion" class="investment">
-        <div class="container">
-            <div class="section-title">
-                <h2>Oportunidades de Inversión</h2>
-                <p>Invierta en el sector de hostelería y entretenimiento en Bolivia</p>
+            <!-- Entretenimiento -->
+            <div class="service-card">
+                <span class="service-icon">🎭</span>
+                <h3 class="service-title">Entretenimiento y Ocio</h3>
+                <p class="service-description">
+                    Operación de centros de entretenimiento, clubes sociales y espacios recreativos con programación diversificada y servicios premium.
+                </p>
+                <ul class="service-features">
+                    <li>Centros de entretenimiento familiar</li>
+                    <li>Clubes sociales y deportivos</li>
+                    <li>Espacios para eventos privados</li>
+                    <li>Programación cultural y artística</li>
+                    <li>Servicios de recreación especializada</li>
+                </ul>
             </div>
-            
-            <div class="investment-stats">
-                <div class="stat-box">
-                    <h3>Bs. 6.26M</h3>
-                    <p>Inversión Inicial</p>
-                </div>
-                <div class="stat-box">
-                    <h3>Bs. 174K</h3>
-                    <p>Costo Operativo Mensual</p>
-                </div>
-                <div class="stat-box">
-                    <h3>4+</h3>
-                    <p>Destinos en Bolivia</p>
-                </div>
-                <div class="stat-box">
-                    <h3>100%</h3>
-                    <p>Capital Suscrito</p>
-                </div>
-            </div>
-            
-            <div style="background-color: white; border-radius: 10px; padding: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <h3 style="color: var(--primary); margin-bottom: 1rem;">Detalles de la Inversión</h3>
-                <p><strong>Inversión Inicial:</strong> Bs. 6,264,000 (aproximadamente $us 900,000)</p>
-                <p><strong>Costo Operativo Mensual:</strong> Bs. 174,000 (aproximadamente $us 25,000)</p>
-                <p><strong>Zonas de Rentabilidad:</strong> La Paz, Santa Cruz, Salar de Uyuni, Beni (turismo de nicho)</p>
-                <p><strong>Desglose de Inversión:</strong></p>
-                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                    <li>Adquisición/Construcción de Propiedad: Bs. 4,872,000</li>
-                    <li>Equipamiento y Mobiliario: Bs. 1,044,000</li>
-                    <li>Marketing y Licencias: Bs. 348,000</li>
+
+            <!-- Servicios Complementarios -->
+            <div class="service-card">
+                <span class="service-icon">✨</span>
+                <h3 class="service-title">Servicios Especializados</h3>
+                <p class="service-description">
+                    Importación, exportación y comercialización de bienes y servicios relacionados con la industria de la hospitalidad y entretenimiento.
+                </p>
+                <ul class="service-features">
+                    <li>Importación de equipamiento hotelero</li>
+                    <li>Distribución de productos gourmet</li>
+                    <li>Consultoría en hospitalidad</li>
+                    <li>Gestión de marcas y franquicias</li>
+                    <li>Servicios de decoración y ambientación</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Sobre Nosotros -->
-    <section id="nosotros" class="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>Sobre Nosotros</h2>
-                <p>Conozca más sobre nuestra empresa y nuestro compromiso con la excelencia en hostelería</p>
+    <!-- Destinations Section -->
+    <section class="destinations" id="destinos">
+        <div class="destinations-container">
+            <div class="destinations-header">
+                <div class="section-label">Dónde Estamos</div>
+                <h2 class="section-title">Nuestros Destinos</h2>
+                <p class="section-description">
+                    Presencia estratégica en las principales ciudades y destinos turísticos de Bolivia.
+                </p>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Nuestra Misión</h3>
-                    <p>Zénit Hospitality Group S.A. es una empresa especializada en el desarrollo, operación y comercialización de actividades en el sector de la hostelería, gastronomía y el entretenimiento, constituida como parte del Grupo Zénit S.A.</p>
-                    <p>Nuestra misión es proporcionar experiencias únicas e inolvidables a nuestros clientes a través de establecimientos de alta calidad en los destinos más atractivos de Bolivia.</p>
-                    
-                    <div class="company-info">
-                        <h3>Información Corporativa</h3>
-                        <p><strong>Zénit Hospitality Group S.A.</strong> es una sociedad anónima constituida bajo las leyes de Bolivia.</p>
-                        <p>Forma parte del holding empresarial <strong>GRUPO ZÉNIT S.A.</strong>, que ejerce la dirección estratégica y supervisión sobre nuestras operaciones.</p>
-                        <div class="company-contact">
-                            <span>📍</span>
-                            <p><strong>Zonas de Operación:</strong> La Paz, Santa Cruz, Salar de Uyuni, Beni</p>
+            <div class="destinations-grid">
+                <!-- La Paz -->
+                <div class="destination-card">
+                    <span class="destination-icon">🏔️</span>
+                    <h3 class="destination-name">La Paz</h3>
+                    <div class="destination-subtitle">Centro Político y Turístico</div>
+                    <p class="destination-description">
+                        Hoteles ejecutivos y restaurantes gourmet en la sede de gobierno, atendiendo turismo de negocios y visitantes internacionales.
+                    </p>
+                    <ul class="destination-features">
+                        <li>Hoteles boutique en zona Sur</li>
+                        <li>Restaurantes de alta cocina</li>
+                        <li>Centros de convenciones corporativas</li>
+                    </ul>
+                </div>
+
+                <!-- Santa Cruz -->
+                <div class="destination-card">
+                    <span class="destination-icon">🌆</span>
+                    <h3 class="destination-name">Santa Cruz</h3>
+                    <div class="destination-subtitle">Hub Económico Nacional</div>
+                    <p class="destination-description">
+                        Establecimientos orientados a turismo de negocios, gastronomía internacional y entretenimiento nocturno en el centro económico del país.
+                    </p>
+                    <ul class="destination-features">
+                        <li>Hoteles ejecutivos y resorts</li>
+                        <li>Restaurantes de cocina fusión</li>
+                        <li>Centros de entretenimiento</li>
+                    </ul>
+                </div>
+
+                <!-- Salar de Uyuni -->
+                <div class="destination-card">
+                    <span class="destination-icon">🌅</span>
+                    <h3 class="destination-name">Salar de Uyuni</h3>
+                    <div class="destination-subtitle">Turismo de Naturaleza</div>
+                    <p class="destination-description">
+                        Hoteles ecológicos y de aventura en uno de los destinos más espectaculares del mundo, con servicios especializados para turistas internacionales.
+                    </p>
+                    <ul class="destination-features">
+                        <li>Hoteles de sal y eco-lodges</li>
+                        <li>Tours gastronómicos andinos</li>
+                        <li>Experiencias astronómicas nocturnas</li>
+                    </ul>
+                </div>
+
+                <!-- Beni -->
+                <div class="destination-card">
+                    <span class="destination-icon">🌴</span>
+                    <h3 class="destination-name">Beni</h3>
+                    <div class="destination-subtitle">Turismo de Nicho Amazónico</div>
+                    <p class="destination-description">
+                        Lodges amazónicos y servicios de turismo ecológico en la región tropical, atendiendo segmentos de ecoturismo y aventura.
+                    </p>
+                    <ul class="destination-features">
+                        <li>Eco-lodges en reservas naturales</li>
+                        <li>Gastronomía amazónica auténtica</li>
+                        <li>Tours de observación de fauna</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experiencia">
+        <div class="experience-container">
+            <div class="experience-content">
+                <div class="section-label" style="color: var(--accent-gold-light);">Nuestro Enfoque</div>
+                <h2 class="section-title" style="color: var(--bg-white);">Experiencia al Cliente</h2>
+                <p class="experience-text">
+                    Cada detalle importa en la creación de experiencias memorables. Nuestro enfoque integral combina infraestructura de primera clase, personal altamente capacitado y atención personalizada.
+                </p>
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <div class="experience-icon">👥</div>
+                        <div class="experience-text-content">
+                            <h3>Personal Capacitado</h3>
+                            <p>
+                                Equipo profesional con formación en hospitalidad internacional, servicio al cliente y estándares de calidad global.
+                            </p>
                         </div>
-                        <div class="company-contact">
-                            <span>💼</span>
-                            <p><strong>Objeto Social:</strong> Operación de hoteles, restaurantes, sitios de apuestas y otros negocios de ocio</p>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-icon">🏛️</div>
+                        <div class="experience-text-content">
+                            <h3>Infraestructura Premium</h3>
+                            <p>
+                                Instalaciones modernas con equipamiento de última generación, diseño arquitectónico distintivo y tecnología de vanguardia.
+                            </p>
                         </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-icon">⭐</div>
+                        <div class="experience-text-content">
+                            <h3>Estándares Internacionales</h3>
+                            <p>
+                                Cumplimiento de protocolos de calidad, higiene y seguridad según normativas internacionales de hospitalidad y turismo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="experience-visual">
+                <div class="section-label" style="color: var(--accent-gold-light);">Nuestros Valores</div>
+                <h3 class="section-title" style="color: var(--bg-white); font-size: 2rem; margin-bottom: 1.5rem;">Compromiso con la Excelencia</h3>
+                <div style="background: rgba(255, 255, 255, 0.05); padding: 2.5rem; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 0.75rem;">🎯 Calidad Sin Compromiso</h4>
+                        <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.7;">Cada servicio, cada plato, cada interacción refleja nuestro compromiso con la excelencia operativa.</p>
+                    </div>
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 0.75rem;">🌱 Sostenibilidad</h4>
+                        <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.7;">Prácticas responsables con el medio ambiente, comunidades locales y desarrollo sostenible del turismo.</p>
+                    </div>
+                    <div>
+                        <h4 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 0.75rem;">💎 Innovación Constante</h4>
+                        <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.7;">Actualización permanente de servicios, gastronomía y experiencias para superar expectativas.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contacto</h2>
-                <p>Póngase en contacto con nosotros para más información sobre nuestros servicios</p>
+    <!-- Investment Section -->
+    <section class="investment">
+        <div class="investment-container">
+            <div class="investment-header">
+                <div class="section-label">Estructura Financiera</div>
+                <h2 class="section-title">Inversión y Operaciones</h2>
+                <p class="section-description">
+                    Inversión estratégica en propiedades, equipamiento y personal para garantizar operaciones de clase mundial.
+                </p>
             </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3 style="color:var(--primary); margin-bottom:1.5rem;">Información de Contacto</h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <h4>Ubicaciones</h4>
-                            <p>La Paz, Santa Cruz, Salar de Uyuni, Beni, Bolivia</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div>
-                            <h4>Email Corporativo</h4>
-                            <p><a href="mailto:gersonisaimachuaoniava@gmail.com">gersonisaimachuaoniava@gmail.com</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">👤</div>
-                        <div>
-                            <h4>Contacto Principal</h4>
-                            <p>Gerson Isai Machua Oniava<br>Presidente del Directorio - Grupo Zénit<br>
-                               <a href="https://sites.google.com/view/gerson-isai-machua-oniava/inicio" target="_blank" style="color: var(--hospitality-gold);">Sitio Personal</a>
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">💼</div>
-                        <div>
-                            <h4>Especialización</h4>
-                            <p>Hotelería, restaurantes, entretenimiento y juegos de azar</p>
-                        </div>
-                    </div>
+            <div class="investment-grid">
+                <div class="investment-card">
+                    <h3>Inversión Total</h3>
+                    <div class="investment-amount">Bs. 6.26M</div>
+                    <p class="investment-description">
+                        Capital inicial equivalente a $us 900,000 para adquisición/construcción de propiedades, equipamiento hotelero y puesta en marcha.
+                    </p>
                 </div>
-                
-                <div class="contact-info">
-                    <h3 style="color:var(--primary); margin-bottom:1.5rem;">Proceso de Servicio</h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">1</div>
-                        <div>
-                            <h4>Consulta Inicial</h4>
-                            <p>Comprendemos sus necesidades de hospedaje o entretenimiento</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">2</div>
-                        <div>
-                            <h4>Selección de Opciones</h4>
-                            <p>Presentamos las mejores opciones según sus preferencias y presupuesto</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">3</div>
-                        <div>
-                            <h4>Reserva y Confirmación</h4>
-                            <p>Gestionamos su reserva y confirmamos todos los detalles</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">4</div>
-                        <div>
-                            <h4>Experiencia y Seguimiento</h4>
-                            <p>Garantizamos una experiencia excepcional con seguimiento post-servicio</p>
-                        </div>
-                    </div>
+                <div class="investment-card">
+                    <h3>Costos Operativos</h3>
+                    <div class="investment-amount">Bs. 174K</div>
+                    <p class="investment-description">
+                        Mensuales, incluyendo salarios de personal hotelero y gastronómico, servicios, insumos, mantenimiento y marketing.
+                    </p>
+                </div>
+                <div class="investment-card">
+                    <h3>Equipamiento</h3>
+                    <div class="investment-amount">Bs. 1.04M</div>
+                    <p class="investment-description">
+                        Inversión en mobiliario de calidad, equipos de cocina industrial, sistemas de gestión hotelera y tecnología para huéspedes.
+                    </p>
                 </div>
             </div>
-            
-            <div class="contact-message">
-                <h3 style="color:var(--primary); margin-bottom:1rem;">¿Interesado en Nuestros Servicios?</h3>
-                <p>Para obtener información detallada sobre nuestras instalaciones, tarifas, oportunidades de inversión o programar una visita, por favor contáctenos directamente a través de nuestro correo electrónico.</p>
-                <a href="mailto:gersonisaimachuaoniava@gmail.com" class="btn" style="margin-top:1.5rem;" aria-label="Enviar correo de interés">Contactar Ahora</a>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contacto">
+        <div class="cta-container">
+            <h2>¿Listo para una Experiencia Memorable?</h2>
+            <p>
+                Contáctenos para reservas, eventos corporativos, franquicias o información sobre nuestros establecimientos en Bolivia.
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:gersonisaimachuaoniava@gmail.com" class="btn btn-primary">Hacer Reserva</a>
+                <a href="https://grupo-z-nit-s-a-three.vercel.app/" class="btn btn-secondary">Grupo Zénit</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>ZÉNIT HOSPITALITY GROUP S.A.</h3>
-                    <p>Empresa especializada en hostelería, gastronomía y entretenimiento, parte del Grupo Zénit S.A.</p>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand">Zénit Hospitality Group</div>
+                    <p class="footer-description">
+                        Filial de GRUPO ZÉNIT S.A. especializada en operación de hoteles, restaurantes, centros de entretenimiento y servicios de catering en las principales ciudades y destinos turísticos de Bolivia.
+                    </p>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul>
+
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul class="footer-links">
+                        <li><a href="#servicios">Hoteles</a></li>
+                        <li><a href="#servicios">Restaurantes</a></li>
+                        <li><a href="#servicios">Entretenimiento</a></li>
+                        <li><a href="#servicios">Catering</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul class="footer-links">
                         <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#instalaciones">Instalaciones</a></li>
-                        <li><a href="#portafolio">Portafolio</a></li>
-                        <li><a href="#inversion">Inversión</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#destinos">Destinos</a></li>
+                        <li><a href="#experiencia">Experiencia</a></li>
                         <li><a href="#contacto">Contacto</a></li>
-                        <li><a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" target="_blank">Grupo Zénit</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Contacto</h3>
-                    <ul>
-                        <li>📍 La Paz, Santa Cruz, Uyuni, Beni, Bolivia</li>
-                        <li>📧 <a href="mailto:gersonisaimachuaoniava@gmail.com" style="color:#ccc; text-decoration:none;">gersonisaimachuaoniava@gmail.com</a></li>
-                        <li>👤 <a href="https://sites.google.com/view/gerson-isai-machua-oniava/inicio" target="_blank" style="color:#ccc; text-decoration:none;">Gerson Isai Machua Oniava</a></li>
-                        <li>🏨 Especialistas en hostelería y entretenimiento</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Empresas del Grupo</h3>
-                    <ul>
-                        <li><a href="https://gersonisai.github.io/yasikari-web/" target="_blank">Yasikari Web</a></li>
-                        <li><a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" target="_blank">Grupo Zénit S.A.</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Financiera-S.A./" target="_blank">Zénit Financiera S.A.</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Software-Solutions-S.A./" target="_blank">Zénit Software Solutions S.A.</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Agro-Industrias-S.A./" target="_blank">Zénit Agro Industrias S.A.</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Cargo-Transport-S.A./" target="_blank">Zénit Cargo Transport S.A.</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Hospitality-Group-S.A./" target="_blank">Zénit Hospitality Group S.A.</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Pharma-S.A./" target="_blank">Zénit Pharma S.A.</a></li>
+
+                <div class="footer-section">
+                    <h4>Grupo Zénit</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://grupo-z-nit-s-a-three.vercel.app/" target="_blank">Holding Principal</a></li>
+                        <li><a href="https://z-nit-financiera-s-a.vercel.app/" target="_blank">Financiera</a></li>
+                        <li><a href="https://z-nit-software-solutions-s-a.vercel.app/" target="_blank">Software Solutions</a></li>
+                        <li><a href="https://z-nit-agro-industrias-s-a.vercel.app/" target="_blank">Agro-Industrias</a></li>
+                        <li><a href="https://z-nit-cargo-transport-s-a.vercel.app/" target="_blank">Cargo & Transport</a></li>
+                        <li><a href="https://z-nit-yasi-k-ari.vercel.app/" target="_blank">Yasi K'ari Legal</a></li>
+                        <li><a href="https://z-nit-pharma-s-a-xcfa.vercel.app/" target="_blank">Pharma</a></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 ZÉNIT HOSPITALITY GROUP S.A. - Todos los derechos reservados | Parte de GRUPO ZÉNIT S.A.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Zénit Hospitality Group S.A. | Filial de GRUPO ZÉNIT S.A.</p>
+                <div class="footer-legal">
+                    <span>La Paz, Santa Cruz, Uyuni, Beni, Bolivia</span>
+                    <a href="mailto:gersonisaimachuaoniava@gmail.com">Contacto</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav').classList.toggle('active');
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a, .btn').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (!href || href.startsWith('mailto:') || href.startsWith('http') || href.startsWith('#')) return;
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetElement = document.querySelector(href);
-                if (!targetElement) return;
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                document.querySelector('nav').classList.remove('active');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.display = 'none';
+                } else {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '100%';
+                    navLinks.style.left = '0';
+                    navLinks.style.right = '0';
+                    navLinks.style.background = 'var(--bg-white)';
+                    navLinks.style.padding = '2rem';
+                    navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                    navLinks.style.zIndex = '999';
+                }
+            });
+        }
     </script>
 </body>
 </html>
